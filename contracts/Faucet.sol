@@ -29,7 +29,7 @@ contract Faucet {
     uint256 weiAmount = msg.value;
     // calculate token amount to be created
     uint256 tokens = weiAmount.mul(rate);
-    //@todo mint <tokens> tokens to <beneficiary>
+    token.mint(beneficiary, tokens);
     TokenDistribution(beneficiary, tokens);
     return true;
   }
