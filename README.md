@@ -41,13 +41,12 @@ sample.env
 # To get the twelve words, you need to set up
 # your account on the MetaMask extension.
 export WALLET_MNEMONIC="twelve words mnemonic ... potato bread coconut pencil"
-export WALLET_ADDRESS="0x43...F0932X"
-export NETWORK_ID=...
 export DEV_NETWORK_ID=...
+export NETWORK_ID=...
 export PROVIDER_URL="https://yourfavoriteprovider.../..."
 ```
 
-Obs.: For a local network only WALLET_MNEMONIC and DEV_NETWORK_ID are necessary.
+Obs.: NETWORK_ID and PROVIDER_URL are for a custom provider only.
 
 After that, make available your environment file inside the bash context:
 ```
