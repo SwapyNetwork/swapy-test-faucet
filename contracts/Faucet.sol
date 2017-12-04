@@ -8,17 +8,18 @@ contract Faucet {
   using SafeMath for uint256;
 
   address public owner;
-  uint256 public rate = 10000; 
+  uint256 public rate; 
   Token public token;
 
   event TokenDistribution(address beneficiary, uint256 amount);
 
-  function Faucet () {
+  function Faucet (uint256 _rate) {
       owner = msg.sender;
+      rate = _rate;
       token = createToken();
   }
 
-  function () payable {
+  function () payable public {
       transferTokens(msg.sender);
   }
 
