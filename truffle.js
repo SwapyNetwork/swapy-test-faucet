@@ -15,7 +15,8 @@ var address = "0x" + wallet.getAddress().toString("hex");
 
 // Configure the custom provider
 var engine = new ProviderEngine();
-const FilterSubprovider = require('web3-provider-engine/subproviders/filters.js')
+var FilterSubprovider = require('web3-provider-engine/subproviders/filters.js');
+
 engine.addProvider(new FilterSubprovider())
 engine.addProvider(new WalletSubprovider(wallet, {}));
 var providerUrl = process.env.PROVIDER_URL;
@@ -23,8 +24,8 @@ engine.addProvider(new Web3Subprovider(new Web3.providers.HttpProvider(providerU
 engine.start(); // Required by the provider engine.
 
 
-const network_id = process.env.NETWORK_ID;
-const dev_network_id = process.env.DEV_NETWORK_ID;
+var network_id = process.env.NETWORK_ID;
+var dev_network_id = process.env.DEV_NETWORK_ID;
 
 module.exports = {
   networks: {
