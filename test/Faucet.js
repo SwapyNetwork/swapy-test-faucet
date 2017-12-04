@@ -22,7 +22,7 @@ let user = null;
 contract('Faucet', accounts => {
 
     const rate = new BigNumber(300);
-    const value = ether(40);
+    const value = ether(1);
     
     const expectedTokenAmount = rate.mul(value)
      
@@ -30,13 +30,27 @@ contract('Faucet', accounts => {
         Swapy = accounts[0];
         user = accounts[1];
         faucet = await Faucet.new(rate, { from: Swapy });
-        let tokenAddress = await faucet.token.call();
+        const tokenAddress = await faucet.token.call();
         token = await Token.at(tokenAddress);
     })
     
     it("should be token owner", async() => {
         const owner = await token.owner.call();
         owner.should.equal(faucet.address);
+    })
+
+    it(`should transfer tokens by a rate of ${rate} tokens per eth`, async () => {
+        const {logs} = await faucet.sendTransaction({ from: user, value });
+        const event = logs.find(e => e.event === 'TokenDistribution')
+        const args = event.args;
+        expect(args).to.include.all.keys([
+            'beneficiary',
+            'amount'
+        ]);
+        const beneficiary = args.beneficiary;
+        const amount = args.amount;
+        beneficiary.should.equal(user);
+        amount.toNumber().should.equal(expectedTokenAmount.toNumber());
     })
 
 })

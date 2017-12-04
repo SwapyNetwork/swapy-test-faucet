@@ -6,7 +6,8 @@ module.exports = function(deployer) {
   deployer.deploy(Faucet, rate).then((deployed) => {
     Faucet.deployed().then(deployed => {
       deployed.token.call().then(token => {
-        console.log(`Token: ${token}`);
+        console.log(`Faucet: ${Faucet.address}`)
+        console.log(`Token: ${token}`)
       });
     });  
   });
