@@ -15,8 +15,8 @@
 | Provider  | Faucet                                     | Token                                      |
 |-----------|--------------------------------------------|--------------------------------------------|
 | Ropsten   | 0x6aa9c856b6f60ede7c06d1656f1bcad7df9d858f | 0xddcc1ebf2f4d47b485a201b64f41c1ddd18ab247 |
+| Rinkeby   | 0x389b6c0fd02774c372914260355b97cf1207d0e8 | 0xc32d87cbc83983faf37cc947584c115ec6b4e197 |
 | Kovan     | unavailable                                | unavailable                                |
-| Rinkeby   | unavailable                                | unavailable                                |
 | localhost | Variable                                   | Variable                                   |
 
 ## Setup
