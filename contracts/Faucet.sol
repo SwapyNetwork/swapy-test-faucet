@@ -4,19 +4,19 @@ import './token/Token.sol';
 import "zeppelin-solidity/contracts/math/SafeMath.sol";
 
 contract Faucet {
-  
+
   using SafeMath for uint256;
 
   address public owner;
-  uint256 public rate; 
+  uint256 public rate;
   Token public token;
 
   event TokenDistribution(address beneficiary, uint256 amount);
 
-  function Faucet (uint256 _rate, address _token) {
+  function Faucet (uint256 _rate) {
       owner = msg.sender;
       rate = _rate;
-      token = Token(_token);
+      token = createToken();
   }
 
   function () payable public {
@@ -34,7 +34,7 @@ contract Faucet {
     TokenDistribution(beneficiary, tokens);
     return true;
   }
- 
+
   // creates the token to be sold.
   function createToken() internal returns (Token) {
     return new Token();
