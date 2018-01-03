@@ -13,10 +13,10 @@ contract Faucet {
 
   event TokenDistribution(address beneficiary, uint256 amount);
 
-  function Faucet (uint256 _rate) {
+  function Faucet (uint256 _rate, address _token) {
       owner = msg.sender;
       rate = _rate;
-      token = createToken();
+      token = Token(_token);
   }
 
   function () payable public {
