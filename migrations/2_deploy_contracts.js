@@ -6,9 +6,9 @@ module.exports = function(deployer, network, accounts) {
   deployer.deploy(Faucet, rate).then((deployed) => {
     Faucet.deployed().then(deployed => {
       deployed.token.call().then(token => {
-        console.log(`Faucet: ${Faucet.address}`)
-        console.log(`Token: ${token}`)
-        console.log(`Deploy Owner: ${accounts[0]}`)
+        console.log(`Faucet&${Faucet.address}&`)
+        console.log(`Deploy Owner&${accounts[0]}&`)
+        console.log(`Token&${token}&`)
       });
     });  
   });
