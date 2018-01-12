@@ -8,6 +8,7 @@
 ## Table of Contents
 
 * [Deployed](#deployed)
+* [Usage](#usage)
 * [Setup](#setup)
 
 ## Deployed
@@ -18,6 +19,11 @@
 | Rinkeby   | 0x389b6c0fd02774c372914260355b97cf1207d0e8 | 0xc32d87cbc83983faf37cc947584c115ec6b4e197 |
 | Kovan     | unavailable                                | unavailable                                |
 | localhost | Variable                                   | Variable                                   |
+
+## Usage
+The Token's distribution follows a rate of 1 ETH to 300 SWAPY.
+To use the faucet and take SWAPY, just send the desired quantity of ETH to the Faucet's address (according to the networks above) and you'll receive tokens.
+
 
 ## Setup
 
